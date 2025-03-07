@@ -4,8 +4,7 @@ const axios = require("axios");
 const app = express();
 app.use(bodyParser.json());
 contador = 0;
-
-const lembretes = {};
+lembretes = {};
 
 app.get('/lembretes', (req, res) => {
     res.send(lembretes);

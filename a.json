@@ -1,0 +1,22 @@
+{
+    "1": {
+        "contador": 1,
+        "texto": "qualquer coisa 2",
+        "observacoes": [
+            {
+                "id": "87df24c9-8247-4a61-a426-d2610d9a0fc9",
+                "texto": "outra coisa 2",
+                "lembreteId": "1"
+            },
+            {
+                "id": "18cb36b3-083d-43e3-8967-262c5ed46cad",
+                "texto": "outra coisa 3",
+                "lembreteId": "1"
+            }
+        ]
+    },
+    "2": {
+        "contador": 2,
+        "texto": "qualquer coisa 3"
+    }
+}

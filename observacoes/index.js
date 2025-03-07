@@ -2,9 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const app = express();
-app.use(bodyParser.json());
-const observacoesPorLembreteId = {};
 const { v4: uuidv4 } = require('uuid');
+app.use(bodyParser.json());
+observacoesPorLembreteId = {};
 
 //:id é um placeholder
 //exemplo: /lembretes/123456/observacoes
@@ -24,7 +24,7 @@ app.put('/lembretes/:id/observacoes', async (req, res) => {
             id: idObs, texto, lembreteId: req.params.id
         }
     })
-    
+
     res.status(201).send(observacoesDoLembrete);
 });
 
