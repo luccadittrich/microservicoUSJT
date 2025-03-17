@@ -9,6 +9,7 @@ const funcoes = {
         baseConsulta[lembrete.contador] = lembrete;
 
     },
+
     ObservacaoCriada: (observacao) => {
         const observacoes =
             baseConsulta[observacao.lembreteId]["observacoes"] ||
@@ -17,7 +18,16 @@ const funcoes = {
         baseConsulta[observacao.lembreteId]["observacoes"] =
             observacoes;
 
-    }
+    },
+
+    ObservacaoAtualizada: (observacao) => {
+        const observacoes =
+            baseConsulta[observacao.lembreteId]["observacoes"];
+        const indice = observacoes.findIndex((o) => o.id ===
+            observacao.id);
+        observacoes[indice] = observacao;
+
+    },
 };
 
 app.get("/lembretes", (req, res) => {
@@ -25,8 +35,12 @@ app.get("/lembretes", (req, res) => {
 });
 
 app.post("/eventos", (req, res) => {
-    funcoes[req.body.tipo](req.body.dados);
-    res.status(200).send(baseConsulta);
+    try {
+        funcoes[req.body.tipo](req.body.dados);
+
+    } catch (err) { }
+    res.status(200).send({ msg: "ok" });
+
 });
 
 app.listen(6000, () => console.log("Consultas. Porta 6000"));
